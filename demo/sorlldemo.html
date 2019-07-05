@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+        }
+
+        .big {
+            width: 300px;
+            float: left;
+
+        }
+
+        /* 垂直滚动最外层样式高度必须固定/overflow-y设置未auto */
+        .outdiv {
+            float: left;
+            width: 100%;
+            overflow-y: hidden;
+            height: 397px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .indiv {
+            float: left;
+            background: #000;
+            color: #fff;
+        }
+
+        .lidiv {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <!-- 垂直带滚动条滚动 -->
+        <div class="outdiv" id="outId">
+            <div class="indiv" id="inId">
+                <div class="lidiv">
+                    <span>标题<span>
+                            <span>内容：导航一般指页面引导性频道集合，多以菜单的形式呈现，可应用于头部和侧边，是整个网页画龙点晴般的存在。面包屑结构简单，支持自定义分隔符。千万不要忘了加载
+                                element模块。虽然大部分行为都是在加载完该模块后自动完成的，但一些交互操作，如呼出二级菜单等，需借助element模块才能使用。你可以移步文档左侧【内置模块 -
+                                常用元素操作
+                                element】了解详情</span>
+                </div>
+                <div class="lidiv">
+                    <span>标题<span>
+                            <span>内容：导航一般指页面引导性频道集合，多以菜单的形式呈现，可应用于头部和侧边，是整个网页画龙点晴般的存在。面包屑结构简单，支持自定义分隔符。千万不要忘了加载
+                                element模块。虽然大部分行为都是在加载完该模块后自动完成的，但一些交互操作，如呼出二级菜单等，需借助element模块才能使用。你可以移步文档左侧【内置模块 -
+                                常用元素操作
+                                element】了解详情</span>
+                </div>
+                <div class="lidiv">
+                    <span>标题<span>
+                            <span>内容：导航一般指页面引导性频道集合，多以菜单的形式呈现，可应用于头部和侧边，是整个网页画龙点晴般的存在。面包屑结构简单，支持自定义分隔符。千万不要忘了加载
+                                element模块。虽然大部分行为都是在加载完该模块后自动完成的，但一些交互操作，如呼出二级菜单等，需借助element模块才能使用。你可以移步文档左侧【内置模块 -
+                                常用元素操作
+                                element】了解详情</span>
+                </div>
+                <div class="lidiv">
+                    <span>标题<span>
+                            <span>内容：导航一般指页面引导性频道集合，多以菜单的形式呈现，可应用于头部和侧边，是整个网页画龙点晴般的存在。面包屑结构简单，支持自定义分隔符。千万不要忘了加载
+                                element模块。虽然大部分行为都是在加载完该模块后自动完成的，但一些交互操作，如呼出二级菜单等，需借助element模块才能使用。你可以移步文档左侧【内置模块 -
+                                常用元素操作
+                                element】了解详情</span>
+                </div>
+                <div class="lidiv">
+                    <span>标题<span>
+                            <span>内容：导航一般指页面引导性频道集合，多以菜单的形式呈现，可应用于头部和侧边，是整个网页画龙点晴般的存在。面包屑结构简单，支持自定义分隔符。千万不要忘了加载
+                                element模块。</span>
+                </div>
+                <div class="lidiv">
+                    <span>标题<span>
+                            <span>内容：导航一般指页面引导性频道集合，多以菜单的形式呈现，可应用于头部和侧边，是整个网页画龙点晴般的存在。面包屑结构简单，支持自定义分隔符。千万不要忘了加载
+                                element模块。虽然大部分行为都是在加载完该模块后自动完成的，但一些交互操作，如呼出二级菜单等，需借助element模块才能使用。你可以移步文档左侧【内置模块 -
+                                常用元素操作
+                                element】了解详情</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+    "use strict";
+    var nowTime;
+    var beforTime = new Date();
+    var afterSce;
+    $(function () {
+        var s = new scroll();
+        s.init($('#outId'), $('#inId'));
+    });
+    function animate() {
+        timer();
+        requestAnimationFrame(animate);
+    }
+    var scroll = function () {
+        var nowTime;
+        var beforTime = new Date();
+        var afterSce;
+        var $out, $in;
+        var $move;
+        var movetop = 0;
+
+        return {
+            //初始化
+            init: function (outObj, inObj) {
+                this.$out = outObj;
+                this.$in = inObj;
+                this.initScroll();
+            },
+            //初始化滚动块
+            initScroll: function () {
+                if (this.$in.height() / 2 >= this.$out.height()) {
+                    var move = '<div id="inscroll"></div>';
+                    this.$out.append(move);
+                    var $move = $('#inscroll');
+                    this.$move = $move;
+                    this.bindEvent();
+                    this.$move.html(this.$in.html() + this.$in.html());
+                    this.$move.css('position', 'relative');
+                }
+            },
+            //事件绑定
+            bindEvent: function () {
+                var $in = this.$in;
+                var $out = this.$out;
+                var $move = this.$move;
+                $in.css('display', 'none');
+                $out.mouseover(function () {
+                    $out.css('overflow-y', 'auto');
+                    $in.css('display', 'block');
+                    $move.css('display', 'none');
+                });
+                $out.mouseleave(function () {
+                    $out.css('overflow-y', 'hidden');
+                    $move.css('display', 'block');
+                    $in.css('display', 'none');
+                });
+                animate();
+            },
+            scroll: function () {
+                var $in = this.$in;
+                var $out = this.$out;
+                var $move = this.$move;
+                if (movetop <= $in.width()) {
+                    $move.css('top', 0);
+                }
+                $move.css('top', -(movetop += 0.1));
+            },
+            timer: function () {
+                nowTime = new Date();
+                var runtime = (nowTime - beforTime) / 1000;
+                if (runtime < 1 && afterSce < 1) {
+                    afterSce += runtime;
+                } else {
+                    console.log(afterSce);
+                    afterSce = 0;
+                }
+                beforTime = new Date();
+                this.scroll();
+            },
+
+        }
+    };
+</script>
+
+</html>

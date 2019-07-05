@@ -1,0 +1,306 @@
+<html>
+
+<head>
+    <title>公告栏</title>
+    <style>
+        html,
+        body,
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            font-family: '微软雅黑', serif;
+        }
+
+        html,
+        body {
+            background: rgba(0, 0, 0, 0);
+        }
+
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            display: block;
+            list-style: none;
+        }
+
+        #dataList {
+            color: #fff;
+            width: 350px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        #dataList li {
+            margin: 0 10px 10px 10px;
+        }
+
+        #dataList h1 {
+            font-size: 14px;
+            font-weight: bold;
+            text-indent: -7px;
+        }
+
+        .font-red {
+            color: #f00;
+            font-size: 14px;
+        }
+
+        .font-yellow {
+            color: #ffa000;
+            font-size: 14px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0 !important;
+        }
+
+        .titleCus {
+            cursor: pointer;
+        }
+
+        .titleCus:hover {
+            color: #5bd6ff;
+        }
+    </style>
+    <script>
+        var path = '<%=path%>';
+    </script>
+</head>
+
+<body>
+    <div id="dataList">
+        <div class="content">
+            <ul>
+                <li>
+                    <h1><span class="font-red">【置顶】</span><span class="font-red">【重要】</span>武汉到北京只需1分钟！高速飞行列车来了？你敢坐？
+                    </h1>
+                    <p>事件类型：物联网事件</p>
+                    <p>影响区域：这是哪里，我在哪儿，我怎么在这？</p>
+                    <p>发生时间：2018-11-19 09:00:00 ~ 2018-11-20 09:00:00</p>
+                    <p>在前两天的TOP500超算排行榜中，美国夺回了性能第一、第二的位置，不过中国的TOP500超算数量再一次大幅提升，总数227台占了45%的份额，其中中国品牌厂商的超算是最多的，除了联想、浪潮、曙光等公司之外，来自华为供应的超算也有14台，数量超过了DELL
+                        EMC及IBM。</p>
+                </li>
+                <li>
+                    <h1><span class="font-red">【置顶】</span><span class="font-yellow">【普通】</span>武汉到北京只需1分钟！高速飞行列车来了？你敢坐？
+                    </h1>
+                    <p>事件类型：物联网事件</p>
+                    <p>影响区域：这是哪里，我在哪儿，我怎么在这？</p>
+                    <p>发生时间：2018-11-19 09:00:00 ~ 2018-11-20 09:00:00</p>
+                    <p>在前两天的TOP500超算排行榜中，美国夺回了性能第一、第二的位置，不过中国的TOP500超算数量再一次大幅提升，总数227台占了45%的份额，其中中国品牌厂商的超算是最多的，除了联想、浪潮、曙光等公司之外，来自华为供应的超算也有14台，数量超过了DELL
+                        EMC及IBM。</p>
+                </li>
+                <li>
+                    <h1><span class="font-red">【重要】</span>武汉到北京只需1分钟！高速飞行列车来了？你敢坐？</h1>
+                    <p>事件类型：物联网事件</p>
+                    <p>影响区域：这是哪里，我在哪儿，我怎么在这？</p>
+                    <p>发生时间：2018-11-19 09:00:00 ~ 2018-11-20 09:00:00</p>
+                    <p>在前两天的TOP500超算排行榜中，美国夺回了性能第一、第二的位置，不过中国的TOP500超算数量再一次大幅提升，总数227台占了45%的份额，其中中国品牌厂商的超算是最多的，除了联想、浪潮、曙光等公司之外，来自华为供应的超算也有14台，数量超过了DELL
+                        EMC及IBM。</p>
+                </li>
+                <li>
+                    <h1><span class="font-red">【重要】</span>武汉到北京只需1分钟！高速飞行列车来了？你敢坐？</h1>
+                    <p>事件类型：物联网事件</p>
+                    <p>影响区域：这是哪里，我在哪儿，我怎么在这？</p>
+                    <p>发生时间：2018-11-19 09:00:00 ~ 2018-11-20 09:00:00</p>
+                    <p>在前两天的TOP500超算排行榜中，美国夺回了性能第一、第二的位置，不过中国的TOP500超算数量再一次大幅提升，总数227台占了45%的份额，其中中国品牌厂商的超算是最多的，除了联想、浪潮、曙光等公司之外，来自华为供应的超算也有14台，数量超过了DELL
+                        EMC及IBM。</p>
+                </li>
+                <li>
+                    <h1><span class="font-red">【重要】</span>武汉到北京只需1分钟！高速飞行列车来了？你敢坐？</h1>
+                    <p>事件类型：物联网事件</p>
+                    <p>影响区域：这是哪里，我在哪儿，我怎么在这？</p>
+                    <p>发生时间：2018-11-19 09:00:00 ~ 2018-11-20 09:00:00</p>
+                    <p>在前两天的TOP500超算排行榜中，美国夺回了性能第一、第二的位置，不过中国的TOP500超算数量再一次大幅提升，总数227台占了45%的份额，其中中国品牌厂商的超算是最多的，除了联想、浪潮、曙光等公司之外，来自华为供应的超算也有14台，数量超过了DELL
+                        EMC及IBM。</p>
+                </li>
+                <li>
+                    <h1><span class="font-red">【重要】</span>武汉到北京只需1分钟！高速飞行列车来了？你敢坐？</h1>
+                    <p>事件类型：物联网事件</p>
+                    <p>影响区域：这是哪里，我在哪儿，我怎么在这？</p>
+                    <p>发生时间：2018-11-19 09:00:00 ~ 2018-11-20 09:00:00</p>
+                    <p>在前两天的TOP500超算排行榜中，美国夺回了性能第一、第二的位置，不过中国的TOP500超算数量再一次大幅提升，总数227台占了45%的份额，其中中国品牌厂商的超算是最多的，除了联想、浪潮、曙光等公司之外，来自华为供应的超算也有14台，数量超过了DELL
+                        EMC及IBM。</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    var data = [{ "I_ID": "33083245", "S_TITLE": "测试1", "I_LEVEL": "1", "S_EVENT_TYPE": null, "S_RANGE": "无", "D_BEGIN_TIME": "2019-07-05 11:41:51.0", "D_END_TIME": "2019-07-20 11:41:54.0", "S_CONTENT": "<p>测试测试测试测试</p>", "I_CREATE_USER_ID": "1", "S_CREATE_USER_NAME": "网络监控室测试", "D_CREATE_TIME": "2019-07-05 11:42:14.0", "I_UPDATE_USER_ID": null, "S_UPDATE_USER_NAME": null, "D_UPDATE_TIME": null, "I_ISTOPPING": "1", "rowId": "1" },
+    { "I_ID": "33083245", "S_TITLE": "测试2", "I_LEVEL": "1", "S_EVENT_TYPE": null, "S_RANGE": "无", "D_BEGIN_TIME": "2019-07-05 11:41:51.0", "D_END_TIME": "2019-07-20 11:41:54.0", "S_CONTENT": "<p>测试测试测试测试</p>", "I_CREATE_USER_ID": "1", "S_CREATE_USER_NAME": "网络监控室测试", "D_CREATE_TIME": "2019-07-05 11:42:14.0", "I_UPDATE_USER_ID": null, "S_UPDATE_USER_NAME": null, "D_UPDATE_TIME": null, "I_ISTOPPING": "1", "rowId": "1" },
+    { "I_ID": "33083245", "S_TITLE": "测试3", "I_LEVEL": "1", "S_EVENT_TYPE": null, "S_RANGE": "无", "D_BEGIN_TIME": "2019-07-05 11:41:51.0", "D_END_TIME": "2019-07-20 11:41:54.0", "S_CONTENT": "<p>测试测试测试测试</p>", "I_CREATE_USER_ID": "1", "S_CREATE_USER_NAME": "网络监控室测试", "D_CREATE_TIME": "2019-07-05 11:42:14.0", "I_UPDATE_USER_ID": null, "S_UPDATE_USER_NAME": null, "D_UPDATE_TIME": null, "I_ISTOPPING": "1", "rowId": "1" },
+    { "I_ID": "33083245", "S_TITLE": "测试4", "I_LEVEL": "1", "S_EVENT_TYPE": null, "S_RANGE": "无", "D_BEGIN_TIME": "2019-07-05 11:41:51.0", "D_END_TIME": "2019-07-20 11:41:54.0", "S_CONTENT": "<p>测试测试测试测试</p>", "I_CREATE_USER_ID": "1", "S_CREATE_USER_NAME": "网络监控室测试", "D_CREATE_TIME": "2019-07-05 11:42:14.0", "I_UPDATE_USER_ID": null, "S_UPDATE_USER_NAME": null, "D_UPDATE_TIME": null, "I_ISTOPPING": "1", "rowId": "1" },
+    { "I_ID": "33083245", "S_TITLE": "测试5", "I_LEVEL": "1", "S_EVENT_TYPE": null, "S_RANGE": "无", "D_BEGIN_TIME": "2019-07-05 11:41:51.0", "D_END_TIME": "2019-07-20 11:41:54.0", "S_CONTENT": "<p>测试测试测试测试</p>", "I_CREATE_USER_ID": "1", "S_CREATE_USER_NAME": "网络监控室测试", "D_CREATE_TIME": "2019-07-05 11:42:14.0", "I_UPDATE_USER_ID": null, "S_UPDATE_USER_NAME": null, "D_UPDATE_TIME": null, "I_ISTOPPING": "1", "rowId": "1" },
+    { "I_ID": "33083245", "S_TITLE": "测试6", "I_LEVEL": "1", "S_EVENT_TYPE": null, "S_RANGE": "无", "D_BEGIN_TIME": "2019-07-05 11:41:51.0", "D_END_TIME": "2019-07-20 11:41:54.0", "S_CONTENT": "<p>测试测试测试测试</p>", "I_CREATE_USER_ID": "1", "S_CREATE_USER_NAME": "网络监控室测试", "D_CREATE_TIME": "2019-07-05 11:42:14.0", "I_UPDATE_USER_ID": null, "S_UPDATE_USER_NAME": null, "D_UPDATE_TIME": null, "I_ISTOPPING": "1", "rowId": "1" },
+    { "I_ID": "33083245", "S_TITLE": "测试7", "I_LEVEL": "1", "S_EVENT_TYPE": null, "S_RANGE": "无", "D_BEGIN_TIME": "2019-07-05 11:41:51.0", "D_END_TIME": "2019-07-20 11:41:54.0", "S_CONTENT": "<p>测试测试测试测试</p>", "I_CREATE_USER_ID": "1", "S_CREATE_USER_NAME": "网络监控室测试", "D_CREATE_TIME": "2019-07-05 11:42:14.0", "I_UPDATE_USER_ID": null, "S_UPDATE_USER_NAME": null, "D_UPDATE_TIME": null, "I_ISTOPPING": "1", "rowId": "1" },
+    { "I_ID": "33083245", "S_TITLE": "测试8", "I_LEVEL": "1", "S_EVENT_TYPE": null, "S_RANGE": "无", "D_BEGIN_TIME": "2019-07-05 11:41:51.0", "D_END_TIME": "2019-07-20 11:41:54.0", "S_CONTENT": "<p>测试测试测试测试</p>", "I_CREATE_USER_ID": "1", "S_CREATE_USER_NAME": "网络监控室测试", "D_CREATE_TIME": "2019-07-05 11:42:14.0", "I_UPDATE_USER_ID": null, "S_UPDATE_USER_NAME": null, "D_UPDATE_TIME": null, "I_ISTOPPING": "1", "rowId": "1" },
+    { "I_ID": "33083245", "S_TITLE": "测试9", "I_LEVEL": "1", "S_EVENT_TYPE": null, "S_RANGE": "无", "D_BEGIN_TIME": "2019-07-05 11:41:51.0", "D_END_TIME": "2019-07-20 11:41:54.0", "S_CONTENT": "<p>测试测试测试测试</p>", "I_CREATE_USER_ID": "1", "S_CREATE_USER_NAME": "网络监控室测试", "D_CREATE_TIME": "2019-07-05 11:42:14.0", "I_UPDATE_USER_ID": null, "S_UPDATE_USER_NAME": null, "D_UPDATE_TIME": null, "I_ISTOPPING": "1", "rowId": "1" }]
+    var edata = [{"id":"2","name":"重要","rowId":"1"},{"id":"1","name":"普通","rowId":"2"}];
+    var eventType = {};
+    var isAnimate = true;
+    var timeIndex = 0;
+    var sec = 50;
+    var beforScroll = 0;
+    $(function () {
+        initSel();
+        btnEvent();
+        timing();
+        setWH();
+        $(window).resize(setWH);
+    });
+
+    function timing() {
+        setInterval(function () {
+            timeIndex++;
+            // console.log(timeIndex);
+            if (timeIndex >= 600) {
+                timeIndex = 0;
+                initSel();
+            }
+            if (isAnimate) {
+                roll();
+            }
+        }, sec);
+    }
+
+    function initScroll(str) {
+        var tager = $('#' + str);
+        var content = tager.children('.content');
+        if (content.height() >= tager.height() && content.height() * 2 >= tager.height()) {
+            var text = tager.html();
+            tager.append(text);
+            isAnimate = true;
+        } else {
+            if (tager.children().length > 1) {
+                tager.children().last().remove();
+                tager.scrollTop(0);
+                isAnimate = false;
+            }
+        }
+        $('#dataList').scrollTop(beforScroll + 1);
+    }
+
+    function roll() {
+        var tager = $('#dataList');
+        tager.scrollTop(tager.scrollTop() + 1);
+        if (tager.children().first().height() && (tager.scrollTop() == tager.children().first().height())) {
+            tager.children().first().remove();
+            tager.append(tager.children('.content').eq(0).clone());
+        }
+    }
+
+    function btnEvent() {
+        var tager = $('#dataList');
+        tager.mouseover(function () {
+            isAnimate = false;
+        });
+        tager.mouseout(function () {
+            isAnimate = true;
+            if (tager.scrollTop() >= tager.children().first().height()) {
+                tager.children().first().remove();
+                tager.append(tager.children('.content').eq(0).clone());
+            }
+        });
+    }
+
+
+    //获取枚举
+    function initSel() {
+        /* var url = path + "/app/protectEvent/announcement!getEnumerate.action";
+        KT.ajax({
+            url: url,
+            data: null,
+            isShowWaitbar: false,
+            success: function (backdata) {
+                var jsonData = decode(backdata);
+                for (var i = 0; i < jsonData.length; i++) {
+                    eventType[jsonData[i].id] = jsonData[i].name;
+                }
+                loadData();
+            }, complete: function () {
+                KT.Wait.hide();
+            }
+        }); */
+        for (var i = 0; i < edata.length; i++) {
+                    eventType[edata[i].id] = edata[i].name;
+                }
+                loadData();
+    }
+    //加载数据
+    function loadData() {
+        /* KT.ajax({
+            url: path + '/app/protectEvent/announcement!getAnnouncementList.action',
+            data: {},
+            isShowWaitbar: false,
+            success: function (backdata) {
+                var data = KT.JSON.decode(backdata);
+                showData(data);
+            }, complete: function () {
+                KT.Wait.hide();
+            }
+        }); */
+        showData(data);
+    }
+    //拼接数据
+    function showData(data) {
+        beforScroll = $('#dataList').scrollTop();
+        var innerHtml = '';
+        innerHtml += '<div class="content"><ul>';
+        for (var i = 0; i < data.length; i++) {
+            innerHtml += '<li class="titleCus" onclick="openWin(' + data[i].I_ID + ')"><h1>'
+                + (data[i].I_ISTOPPING === '2' ? '<span class="font-red">【置顶】</span>' : '')
+                + (data[i].I_LEVEL === '1' ? '<span class="font-yellow">【' + eventType[data[i].I_LEVEL] + '】</span>' : '<span class="font-red">【' + eventType[data[i].I_LEVEL] + '】</span>')
+                + data[i].S_TITLE + '</h1>';
+            if (data[i].S_EVENT_TYPE) {
+                innerHtml += '<p>事件类型：' + data[i].S_EVENT_TYPE + '</p>';
+            }
+            if (data[i].S_RANGE) {
+                innerHtml += '<p>影响区域：' + data[i].S_RANGE + '</p>';
+            }
+            innerHtml += '<p>发生时间：' + (data[i].D_BEGIN_TIME).substr(0, 19) + '&nbsp;~&nbsp;' + (data[i].D_END_TIME).substr(0, 19) + '</p>'
+                + '<p>' + setSize(data[i].S_CONTENT) + '</p>'
+                + '</li>';
+        }
+        innerHtml += '<div class="content"><ul>';
+        $('#dataList').children().empty();
+        $('#dataList').html(innerHtml);
+        initScroll('dataList');
+    }
+    //设置文本长度
+    function setSize(str) {
+        str = str.replace(/<.*?>/g, "");
+        var text = '';
+        text = str.substr(0, 50);
+        text += '...';
+        return text;
+    }
+
+    function openWin(id) {
+        window.top.layer.open({
+            type: 2,
+            title: '公告详情',
+            shadeClose: false, //开启遮罩开启
+            shade: 0.2,
+            anim: 0,
+            resize: false,
+            maxmin: false, //开启最大化最小化按钮
+            area: ['60%', '85%'],
+            content: path + "/admin/app/announcement/announcementDetil.jsp?I_ID=" + id,
+            success: function (layero) {
+                var index = layer.getFrameIndex(window.name);
+                layer.iframeAuto(index);
+            }
+        });
+    }
+    //自适应
+    function setWH() {
+        var wH = window.innerHeight;
+        $('#dataList').css("height", 200 + "px");
+    }
+</script>
+
+</html>
