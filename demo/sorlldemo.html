@@ -92,14 +92,88 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 
-    "use strict";
+    (function (global) {
+        "use strict";
+        var turboScroll = function () { }
+        turboScroll.prototype = {
+            options: {
+                name: 'turboScroll',
+                // frameelem: 'frame-scroll',
+                // contentelem: 'content-scroll'
+            },
+            init: function (opts) {
+                var _this = this;
+                var option = config(opts);
+                var _frameelem = document.getElementById(option.frameelem);
+                var _contentelem = document.getElementById(option.contentelem);
+                var _movetop = 0;
+                var _moveingelem = initScroll(_frameelem, _contentelem, option.moveingelem);
+
+            }
+        }
+
+        function initScroll(frameelem, contentelem, moveingelemStr) {
+            var moveObj;
+            //frameelem、contentelem为id是唯一
+            if (contentelem.offsetHeight / 2 >= frameelem.offsetHeight) {
+                var move = '<div id="' + moveingelemStr + '"></div>';
+                var move = document.createElement('div');
+                move.setAttribute('id', moveingelemStr);
+                frameelem.appendChild(move);
+                moveObj = document.getElementById(moveingelemStr);
+                bindEvent(frameelem, contentelem, moveObj);
+                moveObj.innerHTML = contentelem.innerHTML + contentelem.innerHTML;
+                moveObj.style.position = 'relative';
+            }
+            return moveObj;
+        }
+
+        function bindEvent(frameelem, contentelem, moveingelem) {
+            contentelem.style.display = 'none';
+            frameelem.onmouseover = function () {
+                frameelem.style.overflowY = 'auto';
+                contentelem.style.display = 'block';
+                moveingelem.style.display = 'none';
+            };
+            frameelem.onmouseout = function () {
+                frameelem.style.overflowY = 'hidden';
+                moveingelem.style.display = 'block';
+                contentelem.style.display = 'none';
+            };
+            // animate();
+        }
+
+
+        function config(options) {
+            if (!options.frameelem && !options.contentelem) {
+                console.log('请给出frameelem和contentelem参数！');
+            }
+            return options;
+        }
+
+        function animate() {
+            // timer();
+            requestAnimationFrame(animate);
+        }
+
+        global.turboScroll = turboScroll;
+    }(this))
+
+    var ss = new turboScroll();
+
+    ss.init({
+        frameelem: 'outId',
+        contentelem: 'inId',
+        moveingelem: 'moveId'
+    });
     var nowTime;
     var beforTime = new Date();
     var afterSce;
-    $(function () {
-        var s = new scroll();
-        s.init($('#outId'), $('#inId'));
-    });
+    // $(function () {
+    // var s = new scroll();
+    // s.init($('#outId'), $('#inId'));
+
+    // });
     function animate() {
         timer();
         requestAnimationFrame(animate);
@@ -176,58 +250,7 @@
 
 
 
-    (function (global) {
-        "use strict";
-        var turboScroll = function () { }
-        turboScroll.prototype = {
-            options: {
-                name: 'turboScroll',
-                // frameelem: 'frame-scroll',
-                // contentelem: 'content-scroll'
-            },
-            init: function (opts) {
-                var _this = this;
-                var option = config(opts);
-                var _frameelem = document.getElementsByClassName(option.frameelem);
-                var _contentelem = document.getElementsByClassName(option.contentelem);
-                var _movetop = 0;
-                var _moveingelem = initScroll(_frameelem, _contentelem, option.moveingelem);
-                
-            }
-        }
 
-        function initScroll(frameelem, contentelem, moveingelemStr) {
-            //frameelem、contentelem为id是唯一
-            if (contentelem.height / 2 >= frameelem.height) {
-                var move = '<div id="'+moveingelemStr+'"></div>';
-                var move = document.createElement('div');
-                move.setAttribute('id', moveingelemStr);
-                frameelem.appendChild(move);
-                bindEvent();
-                var moveObj = document.getElementById(moveingelemStr);
-                moveObj.appendChild(contentelem.);
-                this.$move.html(this.$in.html() + this.$in.html());
-                this.$move.css('position', 'relative');
-            }
-
-            return 
-        }
-
-        function bindEvent(){
-            
-        }
-
-
-        function config(options) {
-            if(options.frameelem && options.contentelem){
-                console.log('请给出frameelem和contentelem参数！');
-                break;
-            }
-            return options;
-        }
-
-        global.turboScroll = turboScroll();
-    }(this))
 </script>
 
 </html>
