@@ -173,6 +173,61 @@
 
         }
     };
+
+
+
+    (function (global) {
+        "use strict";
+        var turboScroll = function () { }
+        turboScroll.prototype = {
+            options: {
+                name: 'turboScroll',
+                // frameelem: 'frame-scroll',
+                // contentelem: 'content-scroll'
+            },
+            init: function (opts) {
+                var _this = this;
+                var option = config(opts);
+                var _frameelem = document.getElementsByClassName(option.frameelem);
+                var _contentelem = document.getElementsByClassName(option.contentelem);
+                var _movetop = 0;
+                var _moveingelem = initScroll(_frameelem, _contentelem, option.moveingelem);
+                
+            }
+        }
+
+        function initScroll(frameelem, contentelem, moveingelemStr) {
+            //frameelem、contentelem为id是唯一
+            if (contentelem.height / 2 >= frameelem.height) {
+                var move = '<div id="'+moveingelemStr+'"></div>';
+                var move = document.createElement('div');
+                move.setAttribute('id', moveingelemStr);
+                frameelem.appendChild(move);
+                bindEvent();
+                var moveObj = document.getElementById(moveingelemStr);
+                moveObj.appendChild(contentelem.);
+                this.$move.html(this.$in.html() + this.$in.html());
+                this.$move.css('position', 'relative');
+            }
+
+            return 
+        }
+
+        function bindEvent(){
+            
+        }
+
+
+        function config(options) {
+            if(options.frameelem && options.contentelem){
+                console.log('请给出frameelem和contentelem参数！');
+                break;
+            }
+            return options;
+        }
+
+        global.turboScroll = turboScroll();
+    }(this))
 </script>
 
 </html>

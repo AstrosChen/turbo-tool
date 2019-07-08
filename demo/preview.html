@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .preview-image {
+            width: 120px;
+            color: rgb(89, 21, 21);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img src="1.jpg" alt="" class="preview-image">
+        <img src="2.jpg" alt="" class="preview-image">
+        <img src="3.jpg" alt="" class="preview-image">
+    </div>
+</body>
+<script>
+    
+
+    (function (global) {
+
+        "use strict";
+
+        var yPreview = function () { }
+
+        // 有必要调用到插件本身this的， 就放在prototype上边， 功能函数尽量放在下方工具中
+        yPreview.prototype = {
+
+            options: {
+                name: 'yPreview',
+                elem: 'preview-images'
+            },
+            index: null,
+            /**
+             * @method 初始化
+             * @param { object } 由@method config() 提供的配置参数
+             */
+            init: function (opts) {
+                var _this = this;
+                var option = config(opts, this.options);//用户配置
+                var _elems = document.getElementsByClassName(option.elem);
+                var _elemsLength = _elems.length;
+                var index = null;
+
+                initPreviewArea(_elems);
+
+                var yPreviewImage = document.getElementById('yPreviewImage');
+                var yPreviewArea = document.getElementById('yPreviewArea');
+
+                for (var i = 0; i < _elemsLength; i++) {
+                    _elems[i].setAttribute('data-id', i);
+                    _elems[i].style.cursor = 'pointer';
+                    _elems[i].addEventListener('click', function () {
+                        var src = this.getAttribute('src');
+                        yPreviewImage.setAttribute('src', src);
+                        yPreviewImage.setAttribute('data-id', this.getAttribute('data-id'));
+                        show(yPreviewArea);
+                    })
+                }
+            }
+        }
+
+        function hide(elem) {
+            elem.style.display = 'none';
+        }
+        function show(elem) {
+            elem.style.display = 'block';
+        }
+
+        function setStyle(elem, styles) {
+            for (var key in styles) {
+                elem.style[key] = styles[key]
+            }
+        }
+
+        function initPreviewArea(elems) {
+            var imgsrcs = [];
+            var elemsLength = elems.length;
+            for (var i = 0; i < elemsLength; i++) {
+                imgsrcs.push({
+                    src: elems[i].getAttribute('src'),
+                    id: i
+                })
+            }
+
+            var div = document.createElement('div');
+            div.setAttribute('id', 'yPreviewArea');
+            var divStyle = {
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: window.innerHeight + 'px',
+                background: 'rgba(0, 0, 0, .6)',
+                display: 'none',
+                userSelect: 'none'
+            }
+            var img = document.createElement('img');
+            img.setAttribute('id', 'yPreviewImage');
+            var imgStyle = {
+                position: 'relative',
+                top: '50%',
+                left: '50%',
+                maxHeight: window.innerHeight + 'px'
+            }
+            setStyle(img, imgStyle);
+            img.style.transform = 'translate(-50%, -50%)';
+            // img.addEventListener('click', function () {
+            //   div.style.display = 'none';
+            // })
+            div.appendChild(img);
+
+            var next = document.createElement('a');
+            next.innerText = '>';
+            var nextStyle = {
+                position: 'absolute',
+                top: '50%',
+                right: 0,
+                margin: '12px',
+                width: '42px',
+                height: '42px',
+                lineHight: '42px',
+                display: 'block',
+                background: '#1E67B9',
+                cursor: 'pointer',
+                color: '#fff',
+                textAlign: 'center',
+                fontSize: '27px',
+                borderRadius: '50%'
+            }
+            setStyle(next, nextStyle);
+            next.addEventListener('click', function () {
+                var idx = img.getAttribute('data-id');
+                if ((elemsLength - 1) > idx) {
+                    var _idx = parseInt(idx);
+                    img.setAttribute('src', elems[_idx + 1].getAttribute('src'));
+                    img.setAttribute('data-id', elems[_idx + 1].getAttribute('data-id'));
+                } else {
+                    img.setAttribute('src', elems[0].getAttribute('src'));
+                    img.setAttribute('data-id', elems[0].getAttribute('data-id'));
+                }
+            })
+            div.appendChild(next);
+
+            var prev = document.createElement('a');
+            prev.innerText = '<';
+            var prevStyle = {
+                position: 'absolute',
+                top: '50%',
+                left: 0,
+                margin: '12px',
+                width: '42px',
+                height: '42px',
+                lineHight: '42px',
+                display: 'block',
+                background: '#1E67B9',
+                cursor: 'pointer',
+                color: '#fff',
+                textAlign: 'center',
+                fontSize: '27px',
+                borderRadius: '50%'
+            }
+            setStyle(prev, prevStyle);
+            prev.addEventListener('click', function () {
+                var idx = img.getAttribute('data-id');
+                if (idx != 0) {
+                    var _idx = parseInt(idx);
+                    console.log(elems[_idx - 1].getAttribute('src'))
+                    img.setAttribute('src', elems[_idx - 1].getAttribute('src'));
+                    img.setAttribute('data-id', elems[_idx - 1].getAttribute('data-id'));
+                } else {
+                    img.setAttribute('src', elems[elemsLength - 1].getAttribute('src'));
+                    img.setAttribute('data-id', elems[elemsLength - 1].getAttribute('data-id'));
+                }
+            })
+            div.appendChild(prev);
+
+            var close = document.createElement('a');
+            close.innerText = '×';
+            var closeStyle = {
+                position: 'absolute',
+                top: '12px',
+                right: '12px',
+                display: 'block',
+                fontSize: '32px',
+                color: '#fff',
+                cursor: 'pointer',
+                zIndex: 99
+            }
+            close.addEventListener('click', function () {
+                hide(div);
+            })
+            setStyle(close, closeStyle);
+            div.appendChild(close);
+
+            setStyle(div, divStyle);
+            document.body.appendChild(div)
+        }
+
+        function getNodeClass(className) {
+            var _elems = document.getElementsByClassName(className);
+            return _elems
+        }
+
+        // 工具函数
+        // 检查非空
+        function isEmpty(val) {
+            return val != '' && val != null && val != undefined ? false : true;
+        }
+
+        /**
+         * @method 配置
+         * @param opts { object } 用户提供的参数，在没有提供参数的情况下使用默认参数 
+         * @param options { object } 默认参数
+         * @return options { object } 返回一个配置对象
+         */
+        function config(opts, options) {
+            //默认参数
+            if (!opts) return options;
+            for (var key in opts) {
+                if (!!opts[key]) {
+                    options[key] = opts[key];
+                }
+            }
+            return options;
+        }
+
+        global.yPreview = yPreview;//注册到全局中， 届时可以直接new yPreview() 实例化对象
+
+    }(this))
+
+    let yn = new yPreview();
+    yn.init({
+        name: 'yourNewName',
+        elem: 'preview-image'
+    });
+</script>
+
+</html>
